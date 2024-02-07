@@ -14,9 +14,14 @@ import {
 } from "react-native-heroicons/outline";
 import { styling, theme } from "../theme/theme";
 import LatestMovies from "../components/LatestMovies";
+import MovieList from "../components/MovieList";
 
+const ios = Platform.OS === "ios"
 const HomeScreen = () => {
   const [latest, setLatest] = useState([1,2,3])
+  const [upcoming, setUpcoming] = useState([1,2,3])
+  const [topRated, setTopRated] = useState([1,2,3])
+
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -37,6 +42,7 @@ const HomeScreen = () => {
         contentContainerStyle={{ paddingBottom: 10 }}
       >
         <LatestMovies data={latest} />
+        <MovieList title ="Upcoming" data={upcoming} />
       </ScrollView>
     </View>
   );
@@ -53,10 +59,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginLeft: "4",
+    marginLeft: 4,
   },
   barIcon: {
-    fontSize: "30px",
+    fontSize: 30,
     strokeWidth: "2px",
     color: "white",
   },
@@ -66,7 +72,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   searchIcon: {
-    fontSize: "30px",
+    fontSize: 30,
     strokeWidth: "2px",
     color: "white",
   },
